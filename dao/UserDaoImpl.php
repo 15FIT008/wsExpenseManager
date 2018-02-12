@@ -5,11 +5,15 @@
  * @author Gisela Kurniawati
  */
 class UserDaoImpl {
-    public function getAllUsers() {
+    public function login(User $user) {
         $link = PDOUtil::createPDOConnection();
-        $query = "SELECT * FROM User ";
-        $result = $link->query($query);
-        $result->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'User');
+        $query = "SELECT * FROM User WHERE email = ? AND password = PASSWORD(?) LIMIT 1";
+        $stmt = $link->prepare($query);
+        $stmt->bindValue(1, $user->getEmail(), PDO::PARAM_STR);
+        $stmt->bindValue(2, $user->getPassword(), PDO::PARAM_STR);
+        $stmt->setFetchMode(PDO::FETCH_OBJ);
+        $stmt->execute();
+        $result = $stmt->fetch();
         PDOUtil::closePDOConnection($link);
         return $result;
     }
