@@ -3,10 +3,27 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/xampp/htdocs/wsExpenseManager/entity/User.php</file>
+            <file>file:/C:/xampp/htdocs/wsExpenseManager/dao/IncomeCategoryDaoImpl.php</file>
+            <file>file:/C:/xampp/htdocs/wsExpenseManager/service/delete_outcome_service.php</file>
+            <file>file:/C:/xampp/htdocs/wsExpenseManager/util/PDOUtil.php</file>
+            <file>file:/C:/xampp/htdocs/wsExpenseManager/service/add_user_service.php</file>
+            <file>file:/C:/xampp/htdocs/wsExpenseManager/service/add_outcome_service.php</file>
+            <file>file:/C:/xampp/htdocs/wsExpenseManager/service/update_outcome_service.php</file>
+            <file>file:/C:/xampp/htdocs/wsExpenseManager/entity/Currency.php</file>
+            <file>file:/C:/xampp/htdocs/wsExpenseManager/dao/OutcomeCategoryDaoImpl.php</file>
             <file>file:/C:/xampp/htdocs/wsExpenseManager/service/add_income_service.php</file>
+            <file>file:/C:/xampp/htdocs/wsExpenseManager/entity/Outcome.php</file>
             <file>file:/C:/xampp/htdocs/wsExpenseManager/dao/UserDaoImpl.php</file>
             <file>file:/C:/xampp/htdocs/wsExpenseManager/service/user_login_service.php</file>
+            <file>file:/C:/xampp/htdocs/wsExpenseManager/entity/Income.php</file>
+            <file>file:/C:/xampp/htdocs/wsExpenseManager/entity/IncomeCategory.php</file>
+            <file>file:/C:/xampp/htdocs/wsExpenseManager/util/Utility.php</file>
+            <file>file:/C:/xampp/htdocs/wsExpenseManager/service/delete_income_service.php</file>
             <file>file:/C:/xampp/htdocs/wsExpenseManager/dao/IncomeDaoImpl.php</file>
+            <file>file:/C:/xampp/htdocs/wsExpenseManager/service/update_income_service.php</file>
+            <file>file:/C:/xampp/htdocs/wsExpenseManager/entity/OutcomeCategory.php</file>
+            <file>file:/C:/xampp/htdocs/wsExpenseManager/dao/OutcomeDaoImpl.php</file>
         </group>
     </open-files>
 </project-private>
