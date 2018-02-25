@@ -1,18 +1,25 @@
 <?php
+
 /**
  * Description of BookDaoImpl
  *
  * @author Gisela Kurniawati
  */
 class IncomeCategoryDaoImpl {
+
     public function getAllIncomeCategory() {
         $link = PDOUtil::createPDOConnection();
         $query = "SELECT * FROM IncomeCategory";
-        $result = $link->query($query);
-        $result->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'IncomeCategory');
+        $stmt = $link->query($query);
+        $stmt->setFetchMode(PDO::FETCH_OBJ);
+        $stmt->execute();
+        $result = $stmt->fetch();
+        $this->data = NULL;
+        DBUtil::closePDOConnection($link);
         PDOUtil::closePDOConnection($link);
         return $result;
     }
+
     public function addNewIncomeCategory(IncomeCategory $ic) {
         $link = PDOUtil::createPDOConnection();
         $query = "INSERT INTO IncomeCategory(category) VALUES(?)";
@@ -26,4 +33,5 @@ class IncomeCategoryDaoImpl {
         }
         PDOUtil::closePDOConnection($link);
     }
+
 }

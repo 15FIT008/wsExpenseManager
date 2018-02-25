@@ -4,27 +4,22 @@ include_once '../entity/User.php';
 include_once '../dao/UserDaoImpl.php';
 include_once '../util/PDOUtil.php';
 
-$apiKey = filter_input(INPUT_POST, 'api_key');
-header("content-type:application/json");
-if (isset($apiKey)) {
-    $email = filter_input(INPUT_POST, 'email');
-    $password = filter_input(INPUT_POST, 'password');
-    if (isset($email) && isset($password) && !empty($email) && !empty($password)) {
-        $user = new User();
-        $user->setEmail($email);
-        $user->setPassword($password);
-        $userDao = new UserDaoImpl();
-        $result = $userDao->login($user);
-        echo json_encode($result);
+$email = filter_input(INPUT_POST, 'email');
+$password = filter_input(INPUT_POST, 'password');
+if (isset($email) && isset($password) && !empty($email) &&!empty($password)) {
+    $userDao = new UserDaoImpl();
+    $user = new User();
+    $user->setEmail($email);
+    $user->setPassword($password);
+    $userDao->setData($user);
+    $result = $userDao->login();
+    if (isset($result) && $result->email) {
+        $data = array('status' => 1, 'message' => 'Login success', 'user' => $result);
     } else {
-        $jsonData = array();
-        $jsonData['status'] = 2;
-        $jsonData['message'] = 'Missing email or password';
-        echo json_encode($jsonData);
+        $data = array('status' => 0, 'message' => 'Invalid username or password');
     }
 } else {
-    $jsonData = array();
-    $jsonData['status'] = 2;
-    $jsonData['message'] = 'API Key not recognized';
-    echo json_encode($jsonData);
+    $data = array('status' => 0, 'message' => 'Please provide username and password');
 }
+header ('Content-type:application/json');
+echo json_encode($data);

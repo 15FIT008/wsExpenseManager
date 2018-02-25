@@ -6,13 +6,15 @@
  */
 class PDOUtil {
     public static function createPDOConnection() {
-        $link = new PDO("mysql:host=localhost;dbname=ExpenseManager", "root","");
+        $link = new PDO("mysql:host=localhost;dbname=ExpenceManager", "root","");
         $link->setAttribute(PDO::ATTR_AUTOCOMMIT, FALSE);
         $link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         return $link;
     }
     public static function closePDOConnection(PDO $link) {
-        $link = NULL;
+        if(isset($link)){
+            $link = null;
+        }
     }
 
 }
