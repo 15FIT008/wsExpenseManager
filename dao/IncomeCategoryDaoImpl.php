@@ -8,14 +8,11 @@
 class IncomeCategoryDaoImpl {
 
     public function getAllIncomeCategory() {
+        $query = "SELECT * FROM incomecategory ORDER BY category";
         $link = PDOUtil::createPDOConnection();
-        $query = "SELECT * FROM IncomeCategory";
-        $stmt = $link->query($query);
-        $stmt->setFetchMode(PDO::FETCH_OBJ);
-        $stmt->execute();
-        $result = $stmt->fetch();
-        $this->data = NULL;
-        DBUtil::closePDOConnection($link);
+        $result = $link->prepare($query);
+        $result->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE,'Category');
+        $result->execute();
         PDOUtil::closePDOConnection($link);
         return $result;
     }
